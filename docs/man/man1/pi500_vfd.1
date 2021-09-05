@@ -1,0 +1,50 @@
+.TH PI500_VFD "1" "2021-09-05" "LinuxCNC Documentation" "HAL Component"
+.de TQ
+.br
+.ns
+.TP \\$1
+..
+
+.SH NAME
+
+pi500_vfd \- Powtran PI500 modbus driver
+.SH SYNOPSIS
+.B pi500_vfd
+.SH PINS
+.TP
+.B pi500-vfd.\fIN\fB.commanded-frequency\fR float in \fR
+Frequency of vfd
+.TP
+.B pi500-vfd.\fIN\fB.run\fR bit in \fR
+run the vfd
+.TP
+.B pi500-vfd.\fIN\fB.enable\fR bit in \fR
+1 to enable the vfd. 0 will remote trip the vfd, thereby disabling it.
+.TP
+.B pi500-vfd.\fIN\fB.is-running\fR bit out \fR
+1 when running
+.TP
+.B pi500-vfd.\fIN\fB.is-at-speed\fR bit out \fR
+1 when running at assigned frequency
+.TP
+.B pi500-vfd.\fIN\fB.is-ready\fR bit out \fR
+1 when vfd is ready to run
+.TP
+.B pi500-vfd.\fIN\fB.is-alarm\fR bit out \fR
+1 when vfd alarm is set
+.TP
+.B pi500-vfd.\fIN\fB.motor-current\fR float out \fR
+Output current in amps
+.TP
+.B pi500-vfd.\fIN\fB.heatsink-temp\fR float out \fR
+Temperature of drive heatsink
+.TP
+.B pi500-vfd.\fIN\fB.watchdog-out\fR bit out \fR
+Alternates between 1 and 0 after every update cycle. Feed into a watchdog component to ensure vfd driver is communicating with the vfd properly.
+.SH PARAMETERS
+.TP
+.B pi500-vfd.\fIN\fB.mbslaveaddr\fR u32 rw \fR
+Modbus slave address
+.SH LICENSE
+
+GPLv2 or greater

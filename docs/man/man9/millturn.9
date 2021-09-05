@@ -1,0 +1,48 @@
+.TH MILLTURN "9" "2021-09-05" "LinuxCNC Documentation" "HAL Component"
+.de TQ
+.br
+.ns
+.TP \\$1
+..
+
+.SH NAME
+
+millturn \- Switchable kinematics for a mill-turn machine
+.SH SYNOPSIS
+.HP
+.B loadrt millturn [count=\fIN\fB|names=\fIname1\fB[,\fIname2...\fB]]
+.SH DESCRIPTION
+
+
+.if \n[.g] .mso www.tmac
+
+This is a switchable kinematics module using 3 cartesian linear joints (XYZ)
+and 1 angular joint (A). The module contains two kinematic models:
+
+type0 (default) is a mill (XYZA) configuration with A being a
+rotary axis.
+
+type1 is a turn (Z-YX) configuration with A configured to be a spindle.
+
+For an example configuration, run the sim config: 'configs/sim/axis/vismach/millturn/millturn.ini'.
+
+Further explanations can be found in the README in 'configs/sim/axis/vismach/millturn'.
+
+millturn.comp was constructed by modifying the template file:
+userkins.comp.
+
+For more information on how to modify userkins.comp run: $ man
+userkins.   Also, see additional information inside: 'userkins.comp'.
+
+For information on kinematics in general see the kinematics
+document chapter (docs/src/motion/kinematics.txt) and for
+switchable kinematics in particular see the switchkins document
+chapter (docs/src/motion/switchkins.txt)
+
+
+.SH PINS
+.TP
+.B millturn.\fIN\fB.dummy\fR bit out \fR(default: \fI1\fR)
+.SH LICENSE
+
+GPL
